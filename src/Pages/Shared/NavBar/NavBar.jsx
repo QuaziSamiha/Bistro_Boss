@@ -3,15 +3,18 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
   const navOptions = (
     <>
-      <ul className="flex m-3">
+      <ul className="flex m-3 justify-center">
         <li className="px-4">
           <Link to="/">Home</Link>
         </li>
         <li className="px-4">
           <Link>Dashboard</Link>
         </li>
-        <li>
+        <li className="px-4">
           <Link to="/menu">Our Menu</Link>
+        </li>
+        <li className="px-4">
+          <Link to="/order">Order Food</Link>
         </li>
       </ul>
     </>

@@ -10,12 +10,15 @@ const NavBar = () => {
         <li className="px-4">
           <Link>Dashboard</Link>
         </li>
+        <li>
+          <Link to="/menu">Our Menu</Link>
+        </li>
       </ul>
     </>
   );
   return (
     <>
-      <nav className="fixed z-10  max-w-screen-xl mx-auto text-white bg-black bg-opacity-30 ">
+      <nav className="fixed z-10 max-w-screen-xl mx-auto text-white bg-black bg-opacity-30 ">
         {navOptions}
       </nav>
     </>

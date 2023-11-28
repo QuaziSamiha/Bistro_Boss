@@ -1,14 +1,19 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
-  LoadCanvasTemplateNoReload,
+  // LoadCanvasTemplateNoReload,
   validateCaptcha,
 } from "react-simple-captcha";
+import { AuthContext } from "../../providers/AuthProvider";
+import { Link } from "react-router-dom";
 
 function Login() {
   const captchaRef = useRef(null);
   const [loginDisable, setLoginDisable] = useState(true);
+
+  const { signIn } = useContext(AuthContext);
+
   useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
@@ -19,8 +24,13 @@ function Login() {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+    signIn(email, password).then((result) => {
+      const user = result.user;
+      console.log(user);
+    });
   };
 
+  // eslint-disable-next-line no-unused-vars
   const handleValidateCaptcha = (e) => {
     const user_captcha_value = captchaRef.current.value;
     console.log(user_captcha_value);
@@ -73,7 +83,11 @@ function Login() {
                 <input disabled={loginDisable} type="submit" value="Login" />
               </div>
             </form>
-            <div></div>
+            <p>
+              <small>
+                New Here? <Link to="/signup">Create an accout</Link>
+              </small>
+            </p>
           </div>
         </div>
       </div>

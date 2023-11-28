@@ -9,11 +9,13 @@ function FoodCart({ item }) {
         <p className="absolute right-0 mr-4 mt-4 px-4 bg-slate-900 text-white">
           ${price}
         </p>
-        <div>
+        <div className="flex flex-col items-center">
           <h2>{name}</h2>
           <p className="mx-4">{recipe}</p>
           <div className="justify-end">
-            <button>Add to Cart</button>
+            <button className="bg-slate-100 border-0 border-b-4 px-3 rounded border-orange-400 mt-4">
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>

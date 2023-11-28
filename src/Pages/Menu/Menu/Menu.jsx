@@ -28,9 +28,9 @@ function Menu() {
         {/* offered menu items */}
         <MenuCategory items={offered} />
         {/* dessert menu items */}
-        <MenuCategory items={dessert} title="Dessert" img={dessertImg} />
+        <MenuCategory items={dessert} title="dessert" img={dessertImg} />
         {/* pizza menu items */}
-        <MenuCategory items={pizza} title="Pizza" img={pizzaImg} />
+        <MenuCategory items={pizza} title="pizza" img={pizzaImg} />
         <MenuCategory items={salad} title="salad" img={saladImg} />
         <MenuCategory items={soup} title="soup" img={soupImg} />
       </section>

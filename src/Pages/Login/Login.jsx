@@ -93,6 +93,8 @@ function Login() {
                 </label>
                 <input type="text" name="password" placeholder="password" />
               </div>
+              {/* ----------------pause captcha for development purpose ------ */}
+
               <div className="mt-2">
                 <label>
                   <LoadCanvasTemplate />
@@ -105,13 +107,17 @@ function Login() {
                   placeholder="type the text above"
                 />
                 <br />
-                {/* <button onClick={handleValidateCaptcha} className="mt-2">
+                <button onClick={handleValidateCaptcha} className="mt-2">
                   Validate
-                </button> */}
+                </button>
               </div>
               <div className="mt-6">
                 <input disabled={loginDisable} type="submit" value="Login" />
               </div>
+              {/* TODO: make button disable for captcha */}
+              {/* <div className="mt-6">
+                <input disabled={false} type="submit" value="Login" />
+              </div> */}
             </form>
             <p>
               <small>

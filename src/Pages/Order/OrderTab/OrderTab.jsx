@@ -1,5 +1,6 @@
 import FoodCart from "../../../components/FoodCart/FoodCart";
 
+//TODO: implement pagination here on this page
 function OrderTab({ items }) {
   return (
     <>

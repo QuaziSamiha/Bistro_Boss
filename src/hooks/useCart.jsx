@@ -1,0 +1,26 @@
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
+import { useQuery } from "@tanstack/react-query";
+
+const useCart = () => {
+  const { user } = useContext(AuthContext);
+  //   const { isLoading, isError, data, error } = useQuery({
+  const {
+    isLoading,
+    refetch,
+    data: cart = [],
+  } = useQuery({
+    // changing name of the data a giving a default value
+    queryKey: ["carts", user?.email],
+    queryFn: async () => {
+      const response = await fetch(
+        `http://localhost:5000/carts?email=${user.email}`
+      );
+      return response.json();
+    },
+  });
+
+  //   return [cart, isLoading];
+  return [cart, refetch];
+};
+export default useCart;

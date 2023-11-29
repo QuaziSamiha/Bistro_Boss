@@ -5,6 +5,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 
@@ -22,12 +23,27 @@ function AuthProvider({ children }) {
 
   const signIn = (email, password) => {
     setLoading(true);
-    return signInWithEmailAndPassword(email, password);
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
+  };
+
+  const updateUserProfile = (name, photo) => {
+    updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+    // .then(() => {
+    //   // Profile updated!
+    //   // ...
+    // })
+    // .catch((error) => {
+    //   // An error occurred
+    //   // ...
+    // });
   };
 
   useEffect(() => {
@@ -47,6 +63,7 @@ function AuthProvider({ children }) {
     createUser,
     signIn,
     logOut,
+    updateUserProfile,
   };
 
   return (

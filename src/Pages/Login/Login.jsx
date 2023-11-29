@@ -1,4 +1,9 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import {
+  useContext,
+  useEffect,
+  // useRef,
+  useState,
+} from "react";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
@@ -6,15 +11,17 @@ import {
   validateCaptcha,
 } from "react-simple-captcha";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 function Login() {
-  const captchaRef = useRef(null);
+  // const captchaRef = useRef(null);
   const [loginDisable, setLoginDisable] = useState(true);
-
   const { signIn } = useContext(AuthContext);
-
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
@@ -28,12 +35,30 @@ function Login() {
     signIn(email, password).then((result) => {
       const user = result.user;
       console.log(user);
+      Swal.fire({
+        title: "Custom animation with Animate.css",
+        showClass: {
+          popup: `
+            animate__animated
+            animate__fadeInUp
+            animate__faster
+          `,
+        },
+        hideClass: {
+          popup: `
+            animate__animated
+            animate__fadeOutDown
+            animate__faster
+          `,
+        },
+      });
+      navigate(from, { replace: true });
     });
   };
 
-  // eslint-disable-next-line no-unused-vars
   const handleValidateCaptcha = (e) => {
-    const user_captcha_value = captchaRef.current.value;
+    // const user_captcha_value = captchaRef.current.value;
+    const user_captcha_value = e.target.value;
     console.log(user_captcha_value);
     if (validateCaptcha(user_captcha_value)) {
       setLoginDisable(false);
@@ -73,15 +98,16 @@ function Login() {
                   <LoadCanvasTemplate />
                 </label>
                 <input
-                  ref={captchaRef}
+                  onBlur={handleValidateCaptcha}
+                  // ref={captchaRef}
                   type="text"
                   name="captcha"
                   placeholder="type the text above"
                 />
                 <br />
-                <button onClick={handleValidateCaptcha} className="mt-2">
+                {/* <button onClick={handleValidateCaptcha} className="mt-2">
                   Validate
-                </button>
+                </button> */}
               </div>
               <div className="mt-6">
                 <input disabled={loginDisable} type="submit" value="Login" />

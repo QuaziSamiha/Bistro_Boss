@@ -61,7 +61,7 @@ const NavBar = () => {
   );
   return (
     <>
-      <nav className="fixed z-10 max-w-screen-xl mx-auto text-white bg-black bg-opacity-30 ">
+      <nav className="fixed z-10 w-full right-9 left-9 text-white bg-black bg-opacity-30 ">
         {navOptions}
       </nav>
     </>

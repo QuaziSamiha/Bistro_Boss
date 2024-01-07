@@ -1,6 +1,7 @@
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import featuredImg from "../../../assets/home/featured.jpg";
 import "./Featured.css";
+// css parallax --- search and learn
 function Featured() {
   return (
     <>
@@ -22,7 +23,7 @@ function Featured() {
               nihil, eaque totam veritatis cumque praesentium doloremque
               dignissimos molestiae fuga.
             </p>
-            <button className="uppercase border-b-4 hover:bg-black hover:text-white border border-black text-black px-2 my-3 rounded">
+            <button className="uppercase border-0 border-b-4 hover:bg-black hover:text-white  border-black text-black px-2 my-3 rounded">
               Order Now
             </button>
           </div>

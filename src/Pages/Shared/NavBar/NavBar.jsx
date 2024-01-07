@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart, FaBars } from "react-icons/fa";
 import useCart from "../../../hooks/useCart";
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -13,36 +13,34 @@ const NavBar = () => {
   };
   const navOptions = (
     <>
-      <ul className="flex m-3 justify-center">
-        <li className="px-4">
+      <ul className="lg:flex justify-center">
+        <li>
           <Link to="/">Home</Link>
         </li>
-        <li className="px-4">
+        <li>
           <Link>Dashboard</Link>
         </li>
-        <li className="px-4">
+        <li>
           <Link to="/menu">Our Menu</Link>
         </li>
-        <li className="px-4">
+        <li>
           <Link to="/order/salad">Order Food</Link>
         </li>
-        <li className="px-4">
-          <Link to="/secret">Secret</Link>
+        <li>
+          <Link to="/secret">Our Shop</Link>
         </li>
-        <li className="px-4">
+        <li>
           <Link to="/">
             <button className="gap-2">
-              <FaShoppingCart />
-              <div className="">+{cart?.length} || 0</div>
+              <div className="flex">
+                <FaShoppingCart className="mt-1 mr-2"/>
+                <div>+{cart?.length} || 0</div>
+              </div>
             </button>
           </Link>
         </li>
 
-        {/* <li className="px-4">
-          <Link to="/login">Login</Link>
-        </li> */}
-
-        {user ? (
+        {/* {user ? (
           <>
             <span>{user?.displayName}</span>
             <li onClick={handleLogOut} className="px-4">
@@ -55,14 +53,55 @@ const NavBar = () => {
               <Link to="/login">Login</Link>
             </li>
           </>
-        )}
+        )} */}
       </ul>
     </>
   );
   return (
     <>
-      <nav className="fixed z-10 w-full right-9 left-9 text-white bg-black bg-opacity-30 ">
-        {navOptions}
+      <nav className="fixed z-10 w-[1260px] text-white bg-black bg-opacity-30 uppercase">
+        <div className="navbar px-12">
+          <div className="navbar-start">
+            <div className="dropdown">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost lg:hidden"
+              >
+                <FaBars />
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow  rounded-box w-full"
+              >
+                {navOptions}
+              </ul>
+            </div>
+            <div className="uppercase">
+              <p className="font-bold text-xl">bistro boss</p>
+              <p className="tracking-[4px] text-sm font-semibold">Restourant</p>
+            </div>
+          </div>
+          <div className="navbar-center hidden lg:flex">
+            <ul className="menu menu-horizontal px-1">{navOptions}</ul>
+          </div>
+          <div className="navbar-end">
+            {user ? (
+              <>
+                <span>{user?.displayName}</span>
+                <button onClick={handleLogOut} className="px-4 uppercase">
+                  <Link to="/logout">sing Out</Link>
+                </button>
+              </>
+            ) : (
+              <>
+                <button className="px-4 uppercase">
+                  <Link to="/login">sing in</Link>
+                </button>
+              </>
+            )}
+          </div>
+        </div>
       </nav>
     </>
   );

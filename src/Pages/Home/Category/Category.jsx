@@ -11,7 +11,7 @@ import slide5 from "../../../assets/home/slide5.jpg";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 function Category() {
   return (
-    <>
+    <section className="my-24">
       <SectionTitle
         subHeading={"From 11.00am to 10:00pm"}
         heading={"Order Online"}
@@ -57,7 +57,7 @@ function Category() {
           </h3>
         </SwiperSlide>
       </Swiper>
-    </>
+    </section>
   );
 }
 

@@ -9,11 +9,11 @@ function MenuItem({ item }) {
           src={image}
           alt=""
         />
-        <div>
-          <h3 className="uppercase">{name}-----------</h3>
-          <p>{recipe}</p>
+        <div className="text-[#6d6d6d]">
+          <h3 className="uppercase mb-2">{name}-----------</h3>
+          <p className="text-sm">{recipe}</p>
         </div>
-        <p className="text-yellow-500">{price}</p>
+        <p className="text-[#d1923d]">${price}</p>
       </div>
     </>
   );

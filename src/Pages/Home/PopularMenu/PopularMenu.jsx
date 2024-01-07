@@ -16,7 +16,7 @@ function PopularMenu() {
   //     });
   // }, []);
   return (
-    <section className="mb-1">
+    <section className="my-24">
       <SectionTitle subHeading={"Popular Items"} heading={"from our menu"} />
       <div className="grid md:grid-cols-2 gap-4">
         {/* {menu.map((item) => (

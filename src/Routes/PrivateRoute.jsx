@@ -11,6 +11,7 @@ function PrivateRoute({ children }) {
   if (user) {
     return children;
   }
+  // state={{ from: location }} --- setting dynamically so two {} curly braces --- passing as props
   return <Navigate to="/login" state={{ from: location }}></Navigate>;
 }
 

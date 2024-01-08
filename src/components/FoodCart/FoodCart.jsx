@@ -10,16 +10,22 @@ function FoodCart({ item }) {
   const [, refetch] = useCart();
   const navigate = useNavigate();
   const location = useLocation();
+
+  // WHERE WE CAN STORE THIS CART DATA
+  // 1. using a context or redux -- memory
+  // 2. using local storage -- problem is browser specific
+  // PROBLEM OF FIRST TWO OPTION --- IF I REFRESH , THEN DATA WILL BE GONE
+  // 3. database
   const handleAddToCart = (item) => {
     console.log(item);
     if (user && user.email) {
-      const cartItem = { foodId: _id, name, image, price, email: user.email };
+      const orderItem = { foodId: _id, name, image, price, email: user.email };
       fetch(`http://localhost:5000/carts`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(cartItem),
+        body: JSON.stringify(orderItem),
       })
         .then((res) => res.json())
         .then((data) => {
@@ -28,7 +34,7 @@ function FoodCart({ item }) {
             Swal.fire({
               position: "top-end",
               icon: "success",
-              title: "added to cart",
+              title: "Food added to cart",
               showConfirmButton: false,
               timer: 1500,
             });

@@ -2,11 +2,12 @@ import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 
+// useEffect will be controlled automatically
 const useCart = () => {
   const { user } = useContext(AuthContext);
-  //   const { isLoading, isError, data, error } = useQuery({
+  //   const { isLoading, isError, data, error } = useQuery({})
   const {
-    isLoading,
+    // isLoading,
     refetch,
     data: cart = [],
   } = useQuery({

@@ -16,13 +16,17 @@ function Order() {
   //   const [tabIndex, setTabIndex] = useState(0);
   const initialIndex = categories.indexOf(category);
   const [tabIndex, setTabIndex] = useState(initialIndex);
-  const [menu] = useMenu();
+  // eslint-disable-next-line no-unused-vars
+  const [menu, loading] = useMenu();
   const dessert = menu.filter((item) => item.category === "dessert");
   const soup = menu.filter((item) => item.category === "soup");
   const salad = menu.filter((item) => item.category === "salad");
   const pizza = menu.filter((item) => item.category === "pizza");
   const drinks = menu.filter((item) => item.category === "drinks");
 
+  // if(!menu && loading){
+  //   return <p>loading.........</p>
+  // }
   return (
     <>
       <section>

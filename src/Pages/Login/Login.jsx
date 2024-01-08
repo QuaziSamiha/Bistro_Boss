@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {
   useContext,
   useEffect,
@@ -21,6 +22,7 @@ function Login() {
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  
   const from = location.state?.from?.pathname || "/";
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -112,12 +114,10 @@ function Login() {
                 </button>
               </div>
               <div className="mt-6">
-                <input disabled={loginDisable} type="submit" value="Login" />
+                {/* <input disabled={loginDisable} type="submit" value="Login" /> */}
+                <input disabled={false} type="submit" value="Login" />
               </div>
               {/* TODO: make button disable for captcha */}
-              {/* <div className="mt-6">
-                <input disabled={false} type="submit" value="Login" />
-              </div> */}
             </form>
             <p>
               <small>

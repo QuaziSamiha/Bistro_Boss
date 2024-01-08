@@ -21,7 +21,7 @@ const useCart = () => {
     },
   });
 
-  //   return [cart, isLoading];
+    // return [cart, isLoading];
   return [cart, refetch];
 };
 export default useCart;

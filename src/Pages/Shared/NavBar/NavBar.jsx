@@ -95,7 +95,7 @@ const NavBar = () => {
               <>
                 <span>{user?.displayName}</span>
                 <button onClick={handleLogOut} className="px-4 uppercase">
-                  <Link to="/logout">sing Out</Link>
+                  <Link to="/">sing Out</Link>
                 </button>
               </>
             ) : (

@@ -15,6 +15,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 function Login() {
   // const captchaRef = useRef(null);
@@ -22,7 +23,7 @@ function Login() {
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   const from = location.state?.from?.pathname || "/";
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -119,6 +120,7 @@ function Login() {
               </div>
               {/* TODO: make button disable for captcha */}
             </form>
+            <SocialLogin />
             <p>
               <small>
                 New Here? <Link to="/signup">Create an accout</Link>

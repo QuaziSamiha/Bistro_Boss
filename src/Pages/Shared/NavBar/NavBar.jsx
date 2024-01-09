@@ -3,14 +3,17 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { FaShoppingCart, FaBars } from "react-icons/fa";
 import useCart from "../../../hooks/useCart";
+
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
   const cart = useCart();
+  // console.log(cart.length);
   const handleLogOut = () => {
     logOut()
       .then(() => {})
       .catch((error) => console.log(error));
   };
+
   const navOptions = (
     <>
       <ul className="lg:flex justify-center">
@@ -18,7 +21,7 @@ const NavBar = () => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link>Dashboard</Link>
+          <Link to='/dashboard'>Dashboard</Link>
         </li>
         <li>
           <Link to="/menu">Our Menu</Link>
@@ -30,9 +33,9 @@ const NavBar = () => {
           <Link to="/secret">Our Shop</Link>
         </li>
         <li>
-          <Link to="/">
+          <Link to="/dashboard/mycart">
             <button className="gap-2">
-              <div className="flex mt-">
+              <div className="flex">
                 <FaShoppingCart className="mt-1 mr-2" />
                 <div className="badge badge-secondary">
                   +{cart?.length || 0}

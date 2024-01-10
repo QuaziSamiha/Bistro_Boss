@@ -6,12 +6,14 @@ import { IoHome } from "react-icons/io5";
 // import { BsMenuDown } from "react-icons/bs";
 // import { FaShoppingBag } from "react-icons/fa";
 import useCart from "../hooks/useCart";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   const [cart] = useCart();
 
   // TODO: LOAD DATA FROM THE SERVER TO HAVE DYNAMIC isAdmin BASED ON DATA
-  const isAdmin = true;
+  // const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   return (
     <>

@@ -4,7 +4,7 @@ import useAuth from "./useAuth";
 
 // ----------------------------------------ISTEAD OF FETCH----------------------------------------
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "http://localhost:5000", // one of advantage, we just need to change base url here instead of all components
 });
 const useAxiosSecure = () => {
   const navigate = useNavigate();

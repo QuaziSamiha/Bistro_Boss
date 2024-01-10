@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AllUsers = () => {
-  const [axiosSecure] = useAxiosSecure();
+  const axiosSecure = useAxiosSecure();
   // const { data: users = [], refetch } = useQuery({
   //   queryKey: ["users"],
   //   queryFn: async () => {

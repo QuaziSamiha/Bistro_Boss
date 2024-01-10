@@ -3,8 +3,8 @@ import { FaBook, FaCartShopping, FaUsers, FaUtensils } from "react-icons/fa6";
 // import { MdRateReview, MdPayments } from "react-icons/md";
 import { FaCalendarAlt, FaHome, FaWallet } from "react-icons/fa";
 import { IoHome } from "react-icons/io5";
-// import { BsMenuDown } from "react-icons/bs";
-// import { FaShoppingBag } from "react-icons/fa";
+import { BsMenuDown } from "react-icons/bs";
+import { FaShoppingBag } from "react-icons/fa";
 import useCart from "../hooks/useCart";
 import useAdmin from "../hooks/useAdmin";
 
@@ -94,9 +94,6 @@ const Dashboard = () => {
                     </div>
                   </NavLink>
                 </li>
-                {/* <li>
-              <NavLink></NavLink>
-            </li> */}
               </>
             )}
             <div className="divider"></div>
@@ -105,6 +102,18 @@ const Dashboard = () => {
               <NavLink to="/">
                 <FaHome />
                 Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/order/:category">
+                <FaShoppingBag />
+                Order Food
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/menu">
+                <BsMenuDown />
+                see menu
               </NavLink>
             </li>
           </ul>
